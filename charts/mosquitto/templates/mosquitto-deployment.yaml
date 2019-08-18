@@ -1,0 +1,28 @@
+apiVersion: extensions/v1beta1
+kind: Deployment
+metadata:
+  annotations:
+    kompose.cmd: kompose convert -f docker-compose.yaml
+    kompose.version: 1.18.0 (06a2e56)
+  creationTimestamp: null
+  labels:
+    io.kompose.service: mqtt-broker
+  name: mqtt-broker
+spec:
+  replicas: 1
+  strategy: {}
+  template:
+    metadata:
+      creationTimestamp: null
+      labels:
+        io.kompose.service: mqtt-broker
+    spec:
+      containers:
+      - image: eclipse-mosquitto
+        name: mqtt-broker
+        ports:
+        - containerPort: 1883
+        - containerPort: 9001
+        resources: {}
+      restartPolicy: Always
+status: {}

@@ -1,0 +1,25 @@
+apiVersion: v1
+kind: Service
+metadata:
+  annotations:
+    kompose.cmd: kompose convert -f docker-compose.yaml
+    kompose.version: 1.18.0 (06a2e56)
+  creationTimestamp: null
+  labels:
+    io.kompose.service: mqtt-broker
+  name: mqtt-broker
+spec:
+  type: NodePort
+  ports:
+  - name: "1883"
+    port: 1883
+    targetPort: 1883
+    nodePort: 31883
+  - name: "9001"
+    port: 9001
+    targetPort: 9001
+    nodePort: 30091
+  selector:
+    io.kompose.service: mqtt-broker
+status:
+  loadBalancer: {}

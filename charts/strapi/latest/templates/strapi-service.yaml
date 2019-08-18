@@ -1,0 +1,22 @@
+apiVersion: v1
+kind: Service
+metadata:
+  annotations:
+    kompose.cmd: kompose convert -f docker-compose.yaml
+    kompose.version: 1.18.0 (06a2e56)
+    traefik.docker.network: traefik_proxy
+    traefik.enable: "true"
+    traefik.frontend.rule: Host:strapi.docker.localhost
+  creationTimestamp: null
+  labels:
+    io.kompose.service: strapi
+  name: strapi
+spec:
+  ports:
+  - name: "strapi"
+    port: 1337
+    targetPort: 1337
+  selector:
+    io.kompose.service: strapi
+status:
+  loadBalancer: {}

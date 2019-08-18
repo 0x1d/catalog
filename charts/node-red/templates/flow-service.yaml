@@ -1,0 +1,23 @@
+apiVersion: v1
+kind: Service
+metadata:
+  annotations:
+    kompose.cmd: kompose convert -f docker-compose.yaml
+    kompose.version: 1.18.0 (06a2e56)
+    traefik.docker.network: traefik_proxy
+    traefik.enable: "true"
+    traefik.frontend.rule: Host:flow.docker.localhost
+  creationTimestamp: null
+  labels:
+    io.kompose.service: flow
+  name: flow
+spec:
+  ports:
+  - name: http
+    protocol: TCP
+    port: 1880
+    targetPort: 1880
+  selector:
+    io.kompose.service: flow
+status:
+  loadBalancer: {}

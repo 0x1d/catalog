@@ -1,0 +1,59 @@
+apiVersion: extensions/v1beta1
+kind: Deployment
+metadata:
+  annotations:
+    kompose.cmd: kompose convert -f docker-compose.yaml
+    kompose.version: 1.18.0 (06a2e56)
+    traefik.docker.network: traefik_proxy
+    traefik.enable: "true"
+    traefik.frontend.rule: Host:strapi.docker.localhost
+  creationTimestamp: null
+  labels:
+    io.kompose.service: strapi
+  name: strapi
+spec:
+  replicas: 1
+  strategy:
+    type: Recreate
+  template:
+    metadata:
+      creationTimestamp: null
+      labels:
+        io.kompose.service: strapi
+    spec:
+      containers:
+      - env:
+        - name: APP_NAME
+          value: strapi-app
+        - name: DATABASE_AUTHENTICATION_DATABASE
+          value: strapi
+        - name: DATABASE_CLIENT
+          value: mongo
+        - name: DATABASE_HOST
+          value: db
+        - name: DATABASE_NAME
+          value: strapi
+        - name: DATABASE_PASSWORD
+        - name: DATABASE_PORT
+          value: "27017"
+        - name: DATABASE_SSL
+          value: "false"
+        - name: DATABASE_USERNAME
+        - name: HOST
+          value: localhost
+        - name: NODE_ENV
+          value: production
+        image: wirelos/strapi
+        name: strapi
+        ports:
+        - containerPort: 1337
+        resources: {}
+        #volumeMounts:
+        #- mountPath: /usr/src/api/strapi-app
+        #  name: strapi-claim0
+      restartPolicy: Always
+      #volumes:
+      #- name: strapi-claim0
+      #  persistentVolumeClaim:
+      #    claimName: strapi-claim0
+status: {}
