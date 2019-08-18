@@ -1,0 +1,16 @@
+apiVersion: v1
+kind: PersistentVolumeClaim
+metadata:
+  labels:
+    io.kompose.service: pleroma-web-claim0
+  name: pleroma-web-claim0
+spec:
+  selector:
+    matchLabels:
+      for_app: pleroma-web
+  accessModes:
+  - ReadWriteOnce
+  resources:
+    requests:
+      storage: 50Gi
+status: {}
