@@ -1929,9 +1929,10 @@ metadata:
     app.kubernetes.io/component: server
     app.kubernetes.io/name: argocd-server
     app.kubernetes.io/part-of: argocd
-#    kubernetes.io/cluster-service: "true"
+    kubernetes.io/cluster-service: "true"
   name: argocd-server
 spec:
+  type: ClusterIP
   ports:
   - name: http
     port: 80
