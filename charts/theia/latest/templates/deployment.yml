@@ -9,10 +9,9 @@ metadata:
  name: theia
 spec:
  ports:
- - port: 8443
-   name: https
+ - port: 3000
+   name: http
    protocol: TCP
-   targetPort: 7443
  selector:
    app: theia
  type: ClusterIP
@@ -38,5 +37,13 @@ spec:
         imagePullPolicy: Always
         name: theia
         ports:
-        - containerPort: 8443
-          name: https
+        - containerPort: 3000
+          name: http
+        volumeMounts:
+        - mountPath: /home/project
+          name: theia-workspace-claim0
+      restartPolicy: Always
+      volumes:
+      - name: theia-workspace-claim0
+        persistentVolumeClaim:
+          claimName: theia-workspace-claim0
