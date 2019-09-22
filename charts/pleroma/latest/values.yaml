@@ -5,8 +5,8 @@
 replicaCount: 1
 
 image:
-  repository: wirelos/pleroma
-  tag: latest
+  repository: registry.gitlab.com/wirelos/social/pleroma-web
+  tag: next
   pullPolicy: IfNotPresent
 
 imagePullSecrets: []

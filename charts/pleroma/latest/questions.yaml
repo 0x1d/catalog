@@ -3,7 +3,7 @@ categories:
 - Federation
 questions:
 - variable: pleroma.tag
-  default: "latest"
+  default: "next"
   type: string
   required: true
   label: Docker Tag
