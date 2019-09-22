@@ -8,7 +8,7 @@ spec:
   accessModes:
     - ReadWriteOnce
   capacity:
-    storage: 50Gi
+    storage: 8Gi
   hostPath:
     path: /opt/local-path-provisioner/pvc-pleroma-db-volume
     type: DirectoryOrCreate
@@ -19,7 +19,7 @@ spec:
         - key: kubernetes.io/hostname
           operator: In
           values:
-          - citadel
+          - k8tyworker0
   persistentVolumeReclaimPolicy: Retain
   storageClassName: local-path
   volumeMode: Filesystem
