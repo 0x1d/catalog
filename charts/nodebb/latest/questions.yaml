@@ -1,9 +1,0 @@
-categories:
-- Social
-questions:
-- variable: nodebb.tag
-  default: "latest"
-  type: string
-  required: true
-  label: Docker Tag
-  group: "Image"
