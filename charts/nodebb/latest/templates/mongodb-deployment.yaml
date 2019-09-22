@@ -6,8 +6,8 @@ metadata:
     kompose.version: 1.18.0 (06a2e56)
   creationTimestamp: null
   labels:
-    io.kompose.service: mongodb
-  name: mongodb
+    io.kompose.service: nodebb-mongodb
+  name: nodebb-mongodb
 spec:
   replicas: 1
   strategy:
@@ -16,23 +16,23 @@ spec:
     metadata:
       creationTimestamp: null
       labels:
-        io.kompose.service: mongodb
+        io.kompose.service: nodebb-mongodb
     spec:
       containers:
       - image: registry.gitlab.com/wirelos/social/nodebb-db:next
-        name: mongodb
+        name: nodebb-mongodb
         resources: {}
         volumeMounts:
         - mountPath: /data/db
-          name: mongodb-data
+          name: nodebb-mongodb-data0.1.0
         - mountPath: /data/configdb
-          name: mongodb-config
+          name: nodebb-mongodb-config
       restartPolicy: Always
       volumes:
-      - name: mongodb-data
+      - name: nodebb-mongodb-data
         persistentVolumeClaim:
           claimName: mongodb-data
-      - name: mongodb-config
+      - name: nodebb-mongodb-config
         persistentVolumeClaim:
           claimName: mongodb-config
 status: {}

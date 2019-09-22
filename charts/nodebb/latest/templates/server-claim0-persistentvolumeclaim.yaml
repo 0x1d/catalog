@@ -3,8 +3,8 @@ kind: PersistentVolumeClaim
 metadata:
   creationTimestamp: null
   labels:
-    io.kompose.service: server-claim0
-  name: server-claim0
+    io.kompose.service: nodebb-server-claim0
+  name: nodebb-server-claim0
 spec:
   accessModes:
   - ReadWriteOnce
@@ -20,8 +20,8 @@ kind: PersistentVolumeClaim
 metadata:
   creationTimestamp: null
   labels:
-    io.kompose.service: server-config-claim0
-  name: server-config-claim0
+    io.kompose.service: nodebb-server-config-claim0
+  name: nodebb-server-config-claim0
 spec:
   accessModes:
   - ReadWriteOnce

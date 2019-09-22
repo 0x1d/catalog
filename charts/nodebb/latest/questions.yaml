@@ -1,5 +1,5 @@
 categories:
-- CMS
+- Social
 questions:
 - variable: nodebb.tag
   default: "latest"

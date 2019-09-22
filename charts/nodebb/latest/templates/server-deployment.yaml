@@ -6,8 +6,8 @@ metadata:
     kompose.version: 1.18.0 (06a2e56)
   creationTimestamp: null
   labels:
-    io.kompose.service: server
-  name: server
+    io.kompose.service: nodebb-server
+  name: nodebb-server
 spec:
   replicas: 1
   strategy:
@@ -16,17 +16,17 @@ spec:
     metadata:
       creationTimestamp: null
       labels:
-        io.kompose.service: server
+        io.kompose.service: nodebb-server
     spec:
       containers:
       - image: wirelos/nodebb:v1.0.1
-        name: server
+        name: nodebb-server
         ports:
         - containerPort: 4567
         resources: {}
         volumeMounts:
         - mountPath: /usr/src/app/build
-          name: server-claim0
+          name: nodebb-server-claim0
         - mountPath: /usr/src/app/config.json
           subPath: config.json
           name: nodebb-config
@@ -35,10 +35,10 @@ spec:
       - name: nodebb-config
         configMap:
             name: nodebb-config
-      - name: server-claim0
+      - name: nodebb-server-claim0
         persistentVolumeClaim:
-          claimName: server-claim0
-      - name: server-config-claim0
+          claimName: nodebb-server-claim0
+      - name: nodebb-server-config-claim0
         persistentVolumeClaim:
           claimName: server-config-claim0          
 status: {}
