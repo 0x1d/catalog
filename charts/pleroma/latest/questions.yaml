@@ -2,6 +2,12 @@ categories:
 - Social Network
 - Federation
 questions:
+- variable: image.repository
+  default: "registry.gitlab.com/wirelos/social/pleroma-web"
+  type: string
+  required: true
+  label: Docker Image
+  group: "Image"
 - variable: pleroma.tag
   default: "next"
   type: string

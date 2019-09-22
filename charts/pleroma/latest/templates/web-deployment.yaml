@@ -19,7 +19,7 @@ spec:
         io.kompose.service: pleroma-web
     spec:
       containers:
-      - image: registry.gitlab.com/wirelos/social/pleroma-web:{{ .Values.pleroma.tag }}
+      - image: {{ .Values.image.repository }}:{{ .Values.image.tag }}
         name: pleroma-web
         ports:
         - containerPort: 4000
