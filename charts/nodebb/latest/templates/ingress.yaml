@@ -1,13 +1,13 @@
 apiVersion: extensions/v1beta1
 kind: Ingress
 metadata:
-  name: pleroma-ingress
+  name: nodebb-ingress
 spec:
   rules:
-  - host: pleroma.wirelos.net
+  - host: nodebb.wirelos.net
     http:
       paths:
       - backend:
-          serviceName: pleroma-web
-          servicePort: 4000
+          serviceName: nodebb-server
+          servicePort: 4567
         path: /
