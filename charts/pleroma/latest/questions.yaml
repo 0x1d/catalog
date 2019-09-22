@@ -1,6 +1,7 @@
 categories:
 - Social Network
 - Federation
+- Blog
 questions:
 - variable: image.repository
   default: "registry.gitlab.com/wirelos/social/pleroma-web"
