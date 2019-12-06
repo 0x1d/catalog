@@ -1,0 +1,29 @@
+apiVersion: v1
+kind: PersistentVolume
+metadata:
+  labels:
+    app: theia
+  name: theia-workspace-pv
+spec:
+  storageClassName: ""
+  accessModes:
+    - ReadWriteOnce
+  capacity:
+    storage: 1Gi
+  gcePersistentDisk:
+    fsType: ext4
+    pdName: theia-workspace
+  nodeAffinity:
+    required:
+      nodeSelectorTerms:
+      - matchExpressions:
+        - key: failure-domain.beta.kubernetes.io/zone
+          operator: In
+          values:
+          - us-east1-b
+        - key: failure-domain.beta.kubernetes.io/region
+          operator: In
+          values:
+          - us-east1
+  persistentVolumeReclaimPolicy: Retain
+  volumeMode: Filesystem

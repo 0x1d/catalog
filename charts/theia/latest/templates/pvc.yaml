@@ -2,10 +2,14 @@ apiVersion: v1
 kind: PersistentVolumeClaim
 metadata:
   name: theia-workspace-claim0
+  namespace: theia
 spec:
-#  storageClassName: longhorn
+  selector:
+    matchLabels:
+      app: theia
+  storageClassName: ""
   accessModes:
-  - ReadWriteOnce
+    - ReadWriteOnce
   resources:
     requests:
-      storage: 1000Mi
+      storage: 100Mi
