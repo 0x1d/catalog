@@ -1,6 +1,6 @@
 # Theia
 
-# Persitent Volumes
+# Persistent Volumes
 The gcePersistentDisk "theia-workspace" must exist before this chart can be applied.  
 The PersistentVolume manifest (pv.yaml) should only be applied ONCE or it should  be stored in another respotiory to prevent deletion of the PersistentVolume when the whole app is deleted.
   
@@ -18,7 +18,7 @@ even if it is a PVC with the same name and in the same namespace as the previous
 
 Admin intervention is required here. He has two options:
 * Make the PV available to everybody - delete PV.Spec.ClaimRef, Such PV can bound to any PVC (assuming that capacity, access mode and selectors match)
-* Make the PV available to a specific PVC - pre-fill PV.Spec.ClaimRef with a pointer to a PVC. Leave the PV.Spec.ClaimRef,UID empty, as the PVC does not to need exist at this point and you don't know PVC's UID. This PV can be bound only to the specified PVC.
+* Make the PV available to a specific PVC - pre-fill PV.Spec.ClaimRef with a pointer to a PVC. Leave the PV.Spec.ClaimRef,UID empty, as the PVC does not to need exist at this point and you don't know PVC's UID. This PV can be bound only to the specified PVC.  
 (from https://github.com/kubernetes/kubernetes/issues/48609#issuecomment-314066616)
 
 ### Rebind
